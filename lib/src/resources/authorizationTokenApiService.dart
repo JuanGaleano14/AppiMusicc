@@ -5,10 +5,10 @@ import 'dart:convert';
 
 class AuthorizationTokenApiProvider {
   Client client = Client();
-  static String client_id = "975ea9563fb4472399c103282660fe11";
-  static String client_secret ="109e3920fa9d4693a7160ed9c546faf0";
+  static String client_id = '975ea9563fb4472399c103282660fe11';
+  static String client_secret ='109e3920fa9d4693a7160ed9c546faf0';
 
-  static String AuthorizationStr = "$client_id:$client_secret";
+  static String AuthorizationStr = '$client_id:$client_secret';
   static var bytes = utf8.encode(AuthorizationStr);
   static var base64Str = base64.encode(bytes);
 
@@ -18,7 +18,7 @@ class AuthorizationTokenApiProvider {
 
   Future<AuthorizationModel> fetchToken(String code) async {
     var response = await client.post(urlToToken, body: {
-      'grant_type': "authorization_code",
+      'grant_type': 'authorization_code',
       'code': code,
       'redirect_uri': 'alarmfy:/'
     },headers: {'Authorization' : Authorization});

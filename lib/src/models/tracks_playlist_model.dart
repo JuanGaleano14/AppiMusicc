@@ -28,23 +28,23 @@ class TracksPlaylistModel {
   });
 
   factory TracksPlaylistModel.fromJson(Map<String, dynamic> json) => TracksPlaylistModel(
-    href: json["href"],
-    items: List<Item>.from(json["items"].map((x) => Item.fromJson(x))),
-    limit: json["limit"],
-    next: json["next"],
-    offset: json["offset"],
-    previous: json["previous"],
-    total: json["total"],
+    href: json['href'],
+    items: List<Item>.from(json['items'].map((x) => Item.fromJson(x))),
+    limit: json['limit'],
+    next: json['next'],
+    offset: json['offset'],
+    previous: json['previous'],
+    total: json['total'],
   );
 
   Map<String, dynamic> toJson() => {
-    "href": href,
-    "items": List<dynamic>.from(items.map((x) => x.toJson())),
-    "limit": limit,
-    "next": next,
-    "offset": offset,
-    "previous": previous,
-    "total": total,
+    'href': href,
+    'items': List<dynamic>.from(items.map((x) => x.toJson())),
+    'limit': limit,
+    'next': next,
+    'offset': offset,
+    'previous': previous,
+    'total': total,
   };
 }
 
@@ -62,17 +62,17 @@ class Item {
   });
 
   factory Item.fromJson(Map<String, dynamic> json) => Item(
-    addedAt: DateTime.parse(json["added_at"]),
-    addedBy: AddedBy.fromJson(json["added_by"]),
-    isLocal: json["is_local"],
-    track: json["track"] == null ? null : Track.fromJson(json["track"]),
+    addedAt: DateTime.parse(json['added_at']),
+    addedBy: AddedBy.fromJson(json['added_by']),
+    isLocal: json['is_local'],
+    track: json['track'] == null ? null : Track.fromJson(json['track']),
   );
 
   Map<String, dynamic> toJson() => {
-    "added_at": addedAt.toIso8601String(),
-    "added_by": addedBy.toJson(),
-    "is_local": isLocal,
-    "track": track == null ? null : track.toJson(),
+    'added_at': addedAt.toIso8601String(),
+    'added_by': addedBy.toJson(),
+    'is_local': isLocal,
+    'track': track == null ? null : track.toJson(),
   };
 }
 
@@ -94,21 +94,21 @@ class AddedBy {
   });
 
   factory AddedBy.fromJson(Map<String, dynamic> json) => AddedBy(
-    externalUrls: ExternalUrls.fromJson(json["external_urls"]),
-    href: json["href"],
-    id: json["id"],
-    type: json["type"],
-    uri: json["uri"],
-    name: json["name"] == null ? null : json["name"],
+    externalUrls: ExternalUrls.fromJson(json['external_urls']),
+    href: json['href'],
+    id: json['id'],
+    type: json['type'],
+    uri: json['uri'],
+    name: json['name'],
   );
 
   Map<String, dynamic> toJson() => {
-    "external_urls": externalUrls.toJson(),
-    "href": href,
-    "id": id,
-    "type": type,
-    "uri": uri,
-    "name": name == null ? null : name,
+    'external_urls': externalUrls.toJson(),
+    'href': href,
+    'id': id,
+    'type': type,
+    'uri': uri,
+    'name': name,
   };
 }
 
@@ -120,11 +120,11 @@ class ExternalUrls {
   });
 
   factory ExternalUrls.fromJson(Map<String, dynamic> json) => ExternalUrls(
-    spotify: json["spotify"],
+    spotify: json['spotify'],
   );
 
   Map<String, dynamic> toJson() => {
-    "spotify": spotify,
+    'spotify': spotify,
   };
 }
 
@@ -166,41 +166,41 @@ class Track {
   });
 
   factory Track.fromJson(Map<String, dynamic> json) => Track(
-    album: Album.fromJson(json["album"]),
-    artists: List<AddedBy>.from(json["artists"].map((x) => AddedBy.fromJson(x))),
-    availableMarkets: List<String>.from(json["available_markets"].map((x) => x)),
-    discNumber: json["disc_number"],
-    durationMs: json["duration_ms"],
-    explicit: json["explicit"],
-    externalIds: ExternalIds.fromJson(json["external_ids"]),
-    externalUrls: ExternalUrls.fromJson(json["external_urls"]),
-    href: json["href"],
-    id: json["id"],
-    name: json["name"],
-    popularity: json["popularity"],
-    previewUrl: json["preview_url"],
-    trackNumber: json["track_number"],
-    type: json["type"],
-    uri: json["uri"],
+    album: Album.fromJson(json['album']),
+    artists: List<AddedBy>.from(json['artists'].map((x) => AddedBy.fromJson(x))),
+    availableMarkets: List<String>.from(json['available_markets'].map((x) => x)),
+    discNumber: json['disc_number'],
+    durationMs: json['duration_ms'],
+    explicit: json['explicit'],
+    externalIds: ExternalIds.fromJson(json['external_ids']),
+    externalUrls: ExternalUrls.fromJson(json['external_urls']),
+    href: json['href'],
+    id: json['id'],
+    name: json['name'],
+    popularity: json['popularity'],
+    previewUrl: json['preview_url'],
+    trackNumber: json['track_number'],
+    type: json['type'],
+    uri: json['uri'],
   );
 
   Map<String, dynamic> toJson() => {
-    "album": album.toJson(),
-    "artists": List<dynamic>.from(artists.map((x) => x.toJson())),
-    "available_markets": List<dynamic>.from(availableMarkets.map((x) => x)),
-    "disc_number": discNumber,
-    "duration_ms": durationMs,
-    "explicit": explicit,
-    "external_ids": externalIds.toJson(),
-    "external_urls": externalUrls.toJson(),
-    "href": href,
-    "id": id,
-    "name": name,
-    "popularity": popularity,
-    "preview_url": previewUrl,
-    "track_number": trackNumber,
-    "type": type,
-    "uri": uri,
+    'album': album.toJson(),
+    'artists': List<dynamic>.from(artists.map((x) => x.toJson())),
+    'available_markets': List<dynamic>.from(availableMarkets.map((x) => x)),
+    'disc_number': discNumber,
+    'duration_ms': durationMs,
+    'explicit': explicit,
+    'external_ids': externalIds.toJson(),
+    'external_urls': externalUrls.toJson(),
+    'href': href,
+    'id': id,
+    'name': name,
+    'popularity': popularity,
+    'preview_url': previewUrl,
+    'track_number': trackNumber,
+    'type': type,
+    'uri': uri,
   };
 }
 
@@ -230,29 +230,29 @@ class Album {
   });
 
   factory Album.fromJson(Map<String, dynamic> json) => Album(
-    albumType: json["album_type"],
-    artists: List<AddedBy>.from(json["artists"].map((x) => AddedBy.fromJson(x))),
-    availableMarkets: List<String>.from(json["available_markets"].map((x) => x)),
-    externalUrls: ExternalUrls.fromJson(json["external_urls"]),
-    href: json["href"],
-    id: json["id"],
-    images: List<ImageItem>.from(json["images"].map((x) => ImageItem.fromJson(x))),
-    name: json["name"],
-    type: json["type"],
-    uri: json["uri"],
+    albumType: json['album_type'],
+    artists: List<AddedBy>.from(json['artists'].map((x) => AddedBy.fromJson(x))),
+    availableMarkets: List<String>.from(json['available_markets'].map((x) => x)),
+    externalUrls: ExternalUrls.fromJson(json['external_urls']),
+    href: json['href'],
+    id: json['id'],
+    images: List<ImageItem>.from(json['images'].map((x) => ImageItem.fromJson(x))),
+    name: json['name'],
+    type: json['type'],
+    uri: json['uri'],
   );
 
   Map<String, dynamic> toJson() => {
-    "album_type": albumType,
-    "artists": List<dynamic>.from(artists.map((x) => x.toJson())),
-    "available_markets": List<dynamic>.from(availableMarkets.map((x) => x)),
-    "external_urls": externalUrls.toJson(),
-    "href": href,
-    "id": id,
-    "images": List<dynamic>.from(images.map((x) => x.toJson())),
-    "name": name,
-    "type": type,
-    "uri": uri,
+    'album_type': albumType,
+    'artists': List<dynamic>.from(artists.map((x) => x.toJson())),
+    'available_markets': List<dynamic>.from(availableMarkets.map((x) => x)),
+    'external_urls': externalUrls.toJson(),
+    'href': href,
+    'id': id,
+    'images': List<dynamic>.from(images.map((x) => x.toJson())),
+    'name': name,
+    'type': type,
+    'uri': uri,
   };
 }
 
@@ -268,15 +268,15 @@ class ImageItem {
   });
 
   factory ImageItem.fromJson(Map<String, dynamic> json) => ImageItem(
-    height: json["height"],
-    url: json["url"],
-    width: json["width"],
+    height: json['height'],
+    url: json['url'],
+    width: json['width'],
   );
 
   Map<String, dynamic> toJson() => {
-    "height": height,
-    "url": url,
-    "width": width,
+    'height': height,
+    'url': url,
+    'width': width,
   };
 }
 
@@ -288,10 +288,10 @@ class ExternalIds {
   });
 
   factory ExternalIds.fromJson(Map<String, dynamic> json) => ExternalIds(
-    isrc: json["isrc"],
+    isrc: json['isrc'],
   );
 
   Map<String, dynamic> toJson() => {
-    "isrc": isrc,
+    'isrc': isrc,
   };
 }

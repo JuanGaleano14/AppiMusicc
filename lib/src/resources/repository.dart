@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:alarmfy/src/models/authorization_model.dart';
 import 'package:alarmfy/src/models/list_playlist_model.dart';
 import 'package:alarmfy/src/models/tracks_playlist_model.dart';
-import 'package:alarmfy/src/resources/authorizationToken_api_provider.dart';
-import 'package:alarmfy/src/resources/authorization_api_provider.dart';
-import 'package:alarmfy/src/resources/playlistList_api_provider.dart';
-import 'package:alarmfy/src/resources/tracks_playlist_api_provider.dart';
+import 'package:alarmfy/src/resources/authorizationTokenApiService.dart';
+import 'package:alarmfy/src/resources/authorizationApiService.dart';
+import 'package:alarmfy/src/resources/playlistListApiService.dart';
+import 'package:alarmfy/src/resources/tracks_playlistApiService.dart';
 
 class RepositoryAuthorization {
   final authorizationCodeApiProvider = AuthorizationApiProvider();

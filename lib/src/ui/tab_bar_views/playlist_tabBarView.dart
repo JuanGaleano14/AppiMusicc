@@ -16,7 +16,7 @@ class PlaylistTabBarState extends State<PlaylistTabBar> {
 
   @override
   Widget build(BuildContext context) {
-    return new StreamBuilder(
+    return StreamBuilder(
       stream: playlistBloc.playlistList,
       builder: (context, AsyncSnapshot<ListPlaylistModel> snapshot) {
         if (snapshot.hasData) {
@@ -25,14 +25,13 @@ class PlaylistTabBarState extends State<PlaylistTabBar> {
             itemBuilder: (BuildContext context, int index) {
               return ListTile(
                 leading: Image.network(snapshot
-                            .data.items[index].images.length >
-                        0
+                            .data.items[index].images.isNotEmpty
                     ? snapshot.data.items[index].images[0].url
-                    : "assets/tempScreen/noImagePlaylist.png"),
-                title: Text("${snapshot.data.items[index].name}"),
-                subtitle: Text("de ${snapshot.data.items[index].owner.id}"),
+                    : 'assets/tempScreen/noImagePlaylist.png'),
+                title: Text('${snapshot.data.items[index].name}'),
+                subtitle: Text('de ${snapshot.data.items[index].owner.id}'),
                 onTap: () {
-                  Navigator.pushNamed(context, "/tracks",
+                  Navigator.pushNamed(context, '/tracks',
                       arguments: <String, Playlist>{
                         'playlist': snapshot.data.items[index],
                       });

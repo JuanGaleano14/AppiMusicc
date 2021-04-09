@@ -10,23 +10,23 @@ class TracksPlaylistApiProvider {
   Client client = Client();
 
   Future<TracksPlaylistModel> fetchTracks(String url) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String access_token = prefs.getString('access_token');
-    String token_type = prefs.getString('token_type');
+    var prefs = await SharedPreferences.getInstance();
+    var access_token = prefs.getString('access_token');
+    var token_type = prefs.getString('token_type');
 
-    String AuthorizationWithToken = '${token_type} ${access_token}';
+    var AuthorizationWithToken = '$token_type $access_token';
     var response = await client.get(url,headers: {'Authorization' : AuthorizationWithToken});
 
     //SI SE NECESITA NUEVO TOKEN
     if (response.statusCode == 401) {
-      String refresh_token = prefs.getString('refresh_token');
-      String client_id = "975ea9563fb4472399c103282660fe11";
-      String client_secret ="109e3920fa9d4693a7160ed9c546faf0";
-      String AuthorizationStr = "$client_id:$client_secret";
+      var refresh_token = prefs.getString('refresh_token');
+      var client_id = '975ea9563fb4472399c103282660fe11';
+      var client_secret ='109e3920fa9d4693a7160ed9c546faf0';
+      var AuthorizationStr = '$client_id:$client_secret';
       var bytes = utf8.encode(AuthorizationStr);
       var base64Str = base64.encode(bytes);
-      String Authorization= 'Basic ' + base64Str;
-      var responseNewToken = await client.post("https://accounts.spotify.com/api/token", body: {
+      var Authorization= 'Basic ' + base64Str;
+      var responseNewToken = await client.post('https://accounts.spotify.com/api/token', body: {
         'grant_type': 'refresh_token',
         'refresh_token': refresh_token,
         'redirect_uri': 'alarmfy:/'
@@ -34,18 +34,18 @@ class TracksPlaylistApiProvider {
 
       if (responseNewToken.statusCode == 200) {
         // If the call to the server was successful, parse the JSON
-        AuthorizationModel aM =  AuthorizationModel.fromJson(json.decode(responseNewToken.body));
-        SharedPreferences prefs = await SharedPreferences.getInstance();
-        prefs.setString('access_token', aM.accessToken);
-        prefs.setString('token_type', aM.tokenType);
-        prefs.setBool('logged', true);
+        var aM =  AuthorizationModel.fromJson(json.decode(responseNewToken.body));
+        var prefs = await SharedPreferences.getInstance();
+        await prefs.setString('access_token', aM.accessToken);
+        await prefs.setString('token_type', aM.tokenType);
+        await prefs.setBool('logged', true);
 
         access_token = prefs.getString('access_token');
         token_type = prefs.getString('token_type');
-        String AuthorizationWithToken = '${token_type} ${access_token}';
+        var AuthorizationWithToken = '$token_type $access_token';
         response = await client
             .get(url, headers: {'Authorization': AuthorizationWithToken});
-        print("Se dio un nuevo token!");
+        print('Se dio un nuevo token!');
       } else {
         // If that call was not successful, throw an error.
         throw Exception('Failed to request a new token');

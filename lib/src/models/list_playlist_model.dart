@@ -28,23 +28,23 @@ class ListPlaylistModel {
   });
 
   factory ListPlaylistModel.fromJson(Map<String, dynamic> json) => ListPlaylistModel(
-    href: json["href"],
-    items: List<Playlist>.from(json["items"].map((x) => Playlist.fromJson(x))),
-    limit: json["limit"],
-    next: json["next"],
-    offset: json["offset"],
-    previous: json["previous"],
-    total: json["total"],
+    href: json['href'],
+    items: List<Playlist>.from(json['items'].map((x) => Playlist.fromJson(x))),
+    limit: json['limit'],
+    next: json['next'],
+    offset: json['offset'],
+    previous: json['previous'],
+    total: json['total'],
   );
 
   Map<String, dynamic> toJson() => {
-    "href": href,
-    "items": List<dynamic>.from(items.map((x) => x.toJson())),
-    "limit": limit,
-    "next": next,
-    "offset": offset,
-    "previous": previous,
-    "total": total,
+    'href': href,
+    'items': List<dynamic>.from(items.map((x) => x.toJson())),
+    'limit': limit,
+    'next': next,
+    'offset': offset,
+    'previous': previous,
+    'total': total,
   };
 }
 
@@ -78,33 +78,33 @@ class Playlist {
   });
 
   factory Playlist.fromJson(Map<String, dynamic> json) => Playlist(
-    collaborative: json["collaborative"],
-    externalUrls: ExternalUrls.fromJson(json["external_urls"]),
-    href: json["href"],
-    id: json["id"],
-    images: List<ImageItem>.from(json["images"].map((x) => ImageItem.fromJson(x))),
-    name: json["name"],
-    owner: Owner.fromJson(json["owner"]),
-    public: json["public"],
-    snapshotId: json["snapshot_id"],
-    tracks: Tracks.fromJson(json["tracks"]),
-    type: json["type"],
-    uri: json["uri"],
+    collaborative: json['collaborative'],
+    externalUrls: ExternalUrls.fromJson(json['external_urls']),
+    href: json['href'],
+    id: json['id'],
+    images: List<ImageItem>.from(json['images'].map((x) => ImageItem.fromJson(x))),
+    name: json['name'],
+    owner: Owner.fromJson(json['owner']),
+    public: json['public'],
+    snapshotId: json['snapshot_id'],
+    tracks: Tracks.fromJson(json['tracks']),
+    type: json['type'],
+    uri: json['uri'],
   );
 
   Map<String, dynamic> toJson() => {
-    "collaborative": collaborative,
-    "external_urls": externalUrls.toJson(),
-    "href": href,
-    "id": id,
-    "images": List<ImageItem>.from(images.map((x) => x.toJson())),
-    "name": name,
-    "owner": owner.toJson(),
-    "public": public,
-    "snapshot_id": snapshotId,
-    "tracks": tracks.toJson(),
-    "type": type,
-    "uri": uri,
+    'collaborative': collaborative,
+    'external_urls': externalUrls.toJson(),
+    'href': href,
+    'id': id,
+    'images': List<ImageItem>.from(images.map((x) => x.toJson())),
+    'name': name,
+    'owner': owner.toJson(),
+    'public': public,
+    'snapshot_id': snapshotId,
+    'tracks': tracks.toJson(),
+    'type': type,
+    'uri': uri,
   };
 
 
@@ -119,11 +119,11 @@ class ExternalUrls {
   });
 
   factory ExternalUrls.fromJson(Map<String, dynamic> json) => ExternalUrls(
-    spotify: json["spotify"],
+    spotify: json['spotify'],
   );
 
   Map<String, dynamic> toJson() => {
-    "spotify": spotify,
+    'spotify': spotify,
   };
 }
 
@@ -143,19 +143,19 @@ class Owner {
   });
 
   factory Owner.fromJson(Map<String, dynamic> json) => Owner(
-    externalUrls: ExternalUrls.fromJson(json["external_urls"]),
-    href: json["href"],
-    id: json["id"],
-    type: json["type"],
-    uri: json["uri"],
+    externalUrls: ExternalUrls.fromJson(json['external_urls']),
+    href: json['href'],
+    id: json['id'],
+    type: json['type'],
+    uri: json['uri'],
   );
 
   Map<String, dynamic> toJson() => {
-    "external_urls": externalUrls.toJson(),
-    "href": href,
-    "id": id,
-    "type": type,
-    "uri": uri,
+    'external_urls': externalUrls.toJson(),
+    'href': href,
+    'id': id,
+    'type': type,
+    'uri': uri,
   };
 }
 
@@ -169,13 +169,13 @@ class Tracks {
   });
 
   factory Tracks.fromJson(Map<String, dynamic> json) => Tracks(
-    href: json["href"],
-    total: json["total"],
+    href: json['href'],
+    total: json['total'],
   );
 
   Map<String, dynamic> toJson() => {
-    "href": href,
-    "total": total,
+    'href': href,
+    'total': total,
   };
 }
 
@@ -191,14 +191,14 @@ class ImageItem {
   });
 
   factory ImageItem.fromJson(Map<String, dynamic> json) => ImageItem(
-    height: json["height"],
-    url: json["url"],
-    width: json["width"],
+    height: json['height'],
+    url: json['url'],
+    width: json['width'],
   );
 
   Map<String, dynamic> toJson() => {
-    "height": height,
-    "url": url,
-    "width": width,
+    'height': height,
+    'url': url,
+    'width': width,
   };
 }

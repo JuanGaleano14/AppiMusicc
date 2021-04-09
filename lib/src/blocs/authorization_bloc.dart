@@ -12,20 +12,23 @@ class AuthorizationBloc {
   Observable<String> get authorizationCode => _authorizationCodeFetcher.stream;
   Observable<AuthorizationModel> get authorizationToken => _authorizationTokenFetcher.stream;
 
+  // ignore: always_declare_return_types
   fetchAuthorizationCode() async {
-    String code = await _repository.fetchAuthorizationCode();
+    var code = await _repository.fetchAuthorizationCode();
     _authorizationCodeFetcher.sink.add(code);
   }
 
   fetchAuthorizationToken(String code) async {
-    AuthorizationModel authorizationModel = await _repository.fetchAuthorizationToken(code);
+    var authorizationModel = await _repository.fetchAuthorizationToken(code);
     _authorizationTokenFetcher.sink.add(authorizationModel);
   }
 
+  // ignore: always_declare_return_types
   disposeCode() {
     _authorizationCodeFetcher.close();
   }
 
+  // ignore: always_declare_return_types
   disposeToken() {
     _authorizationTokenFetcher.close();
   }

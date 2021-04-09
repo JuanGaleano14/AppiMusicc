@@ -14,18 +14,22 @@ class PlaylistBloc {
   Observable<ListPlaylistModel> get playlistList => _playlistListFetcher.stream;
   Observable<TracksPlaylistModel> get tracksList => _tracksListFetcher.stream;
 
+  // ignore: always_declare_return_types
   fetchPlaylistList() async {
-     ListPlaylistModel code = await _repository.fetchPlaylistList();
+     var code = await _repository.fetchPlaylistList();
     _playlistListFetcher.sink.add(code);
   }
+  // ignore: always_declare_return_types
   fetchTracksList(String url) async {
-    TracksPlaylistModel tracks = await _repository.fetchTracksList(url);
+    var tracks = await _repository.fetchTracksList(url);
     _tracksListFetcher.sink.add(tracks);
   }
 
+  // ignore: always_declare_return_types
   disposePlaylist() {
     _playlistListFetcher.close();
   }
+  // ignore: always_declare_return_types
   disposeTracks() {
     _tracksListFetcher.close();
   }

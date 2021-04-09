@@ -19,11 +19,11 @@ class MyApp extends StatelessWidget {
       home: TempScreen(),
       //Definición de nombre de las rutas a utilizar
       routes: <String, WidgetBuilder>{
-        '/login': (BuildContext context) => new LoginScreen(),
-        '/home': (BuildContext context) => new HomeScreen(),
-        '/temp': (BuildContext context) => new TempScreen(),
-        '/tracks': (BuildContext context) => new TracksScreen(),
-        '/wait': (BuildContext context) => new WaitScreen(),
+        '/login': (BuildContext context) => LoginScreen(),
+        '/home': (BuildContext context) => HomeScreen(),
+        '/temp': (BuildContext context) => TempScreen(),
+        '/tracks': (BuildContext context) => TracksScreen(),
+        '/wait': (BuildContext context) => WaitScreen(),
       },
     );
   }
