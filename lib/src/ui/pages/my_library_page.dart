@@ -13,7 +13,7 @@ class MyLibraryPageState extends State<MyLibraryPage>
   @override
   void initState() {
     super.initState();
-    tabController = TabController(vsync: this, initialIndex: 0, length: 3)
+    tabController = TabController(vsync: this, initialIndex: 0, length: 1)
       ..addListener(() {
         setState(() {});
       });
@@ -28,12 +28,14 @@ class MyLibraryPageState extends State<MyLibraryPage>
   @override
   Widget build(BuildContext context) {
     var tabBar = Container(
-      decoration: BoxDecoration(color: Colors.black54,),
+      decoration: BoxDecoration(
+        color: Colors.black54,
+      ),
       child: TabBar(
         controller: tabController,
         tabs: [
-           Tab(
-            text: 'Playlists',
+          Tab(
+            text: 'Listas de reproducción',
           )
         ],
       ),
@@ -54,7 +56,9 @@ class MyLibraryPageState extends State<MyLibraryPage>
         tabBar,
         Expanded(
           child: Container(
-            decoration:  BoxDecoration(color: Colors.black54,),
+            decoration: BoxDecoration(
+              color: Colors.black54,
+            ),
             child: tabBarView,
           ),
         )

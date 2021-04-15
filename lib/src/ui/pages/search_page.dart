@@ -7,10 +7,10 @@ class SearchPage extends StatefulWidget {
 class SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      decoration: new BoxDecoration(color: Theme.of(context).primaryColor),
+    return Container(
+      decoration: BoxDecoration(color: Theme.of(context).primaryColor),
       child: Center(
-        child: Text("Buscar"),
+        child: Text('Buscar'),
       ),
     );
   }

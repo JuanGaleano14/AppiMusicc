@@ -11,12 +11,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   var selectedIndex = 0;
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    AppBar appBar = new AppBar(
+    var appBar = AppBar(
       title: Text(
-        "AppiMusic",
+        'AppiMusic',
         style: TextStyle(fontSize: 20),
       ),
       backgroundColor: Colors.black54,
@@ -24,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
       elevation: 0.0,
     );
 
-    BottomNavigationBar bottomNavigationBar = new BottomNavigationBar(
+    var bottomNavigationBar = BottomNavigationBar(
       backgroundColor: Theme.of(context).primaryColor,
       selectedFontSize: 10,
       unselectedFontSize: 10,
@@ -33,17 +32,17 @@ class _HomeScreenState extends State<HomeScreen> {
       type: BottomNavigationBarType.fixed,
       items: [
         BottomNavigationBarItem(
-            label: "Home",
+            label: 'Inicio',
             icon: Icon(
               Icons.home,
             )),
         BottomNavigationBarItem(
-            label: "Buscar",
+            label: 'Buscar',
             icon: Icon(
               Icons.search,
             )),
         BottomNavigationBarItem(
-            label: "Biblioteca",
+            label: 'Biblioteca',
             icon: Icon(
               Icons.library_music,
             )),
@@ -57,13 +56,13 @@ class _HomeScreenState extends State<HomeScreen> {
       },
     );
 
-    List<Widget> listPages = [
-      new StartPage(),
-      new SearchPage(),
-      new MyLibraryPage(),
+    var listPages = <Widget>[
+      StartPage(),
+      SearchPage(),
+      MyLibraryPage(),
     ];
 
-    Scaffold scaffold = new Scaffold(
+    var scaffold = Scaffold(
       appBar: appBar,
       body: listPages.elementAt(selectedIndex),
       bottomNavigationBar: bottomNavigationBar,

@@ -10,14 +10,13 @@ class WaitScreen extends StatefulWidget {
 }
 
 class _WaitScreenState extends State<WaitScreen> {
-
   //AsyncSnapshot: Representación inmutable de la interacción más reciente con un cálculo asincrónico
   agregarTokenToPrefs(AsyncSnapshot<AuthorizationModel> snapshot) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString('access_token', snapshot.data.accessToken);
-    prefs.setString('token_type', snapshot.data.tokenType);
-    prefs.setString('refresh_token', snapshot.data.refreshToken);
-    prefs.setBool('logged', true);
+    var prefs = await SharedPreferences.getInstance();
+    await prefs.setString('access_token', snapshot.data.accessToken);
+    await prefs.setString('token_type', snapshot.data.tokenType);
+    await prefs.setString('refresh_token', snapshot.data.refreshToken);
+    await prefs.setBool('logged', true);
   }
 
   @override
@@ -26,9 +25,13 @@ class _WaitScreenState extends State<WaitScreen> {
     authorizationBloc.fetchAuthorizationCode();
 
     _bienvenido() {
+      //Se da cierre al stream, para no permitir más escuchas.
       authorizationBloc.disposeToken();
-      Timer(Duration(microseconds: 0),
-              () => Navigator.pushNamedAndRemoveUntil(context,"/home", (route)=>false));
+
+      Timer(
+          Duration(microseconds: 0),
+          () => Navigator.pushNamedAndRemoveUntil(
+              context, '/home', (route) => false));
       return Center(child: CircularProgressIndicator());
     }
 
@@ -37,7 +40,7 @@ class _WaitScreenState extends State<WaitScreen> {
         stream: authorizationBloc.authorizationCode,
         builder: (context, AsyncSnapshot<String> snapshot) {
           if (snapshot.hasData) {
-            if (snapshot.data == "access_denied") {
+            if (snapshot.data == 'access_denied') {
               Navigator.pop(contextBuild);
             } else {
               authorizationBloc.fetchAuthorizationToken(snapshot.data);
@@ -45,12 +48,13 @@ class _WaitScreenState extends State<WaitScreen> {
                 stream: authorizationBloc.authorizationToken,
                 builder: (context, AsyncSnapshot<AuthorizationModel> snapshot) {
                   if (snapshot.hasData) {
-                    print("FINAL DATA");
+                    print('FINAL DATA, Petición: fetchAuthorizationToken');
                     print('access_token: ${snapshot.data.accessToken}');
-                    print("token_type: ${snapshot.data.tokenType}");
-                    print("expires_in: ${snapshot.data.expiresIn}");
-                    print("refresh_token: ${snapshot.data.refreshToken}");
-                    print("scope: ${snapshot.data.scope}");
+                    print('token_type: ${snapshot.data.tokenType}');
+                    print('expires_in: ${snapshot.data.expiresIn}');
+                    print('refresh_token: ${snapshot.data.refreshToken}');
+                    print('scope: ${snapshot.data.scope}');
+                    //Se añade a las preferencias el fetchAuthorizationToken
                     agregarTokenToPrefs(snapshot);
                     return _bienvenido();
                   } else if (snapshot.hasError) {

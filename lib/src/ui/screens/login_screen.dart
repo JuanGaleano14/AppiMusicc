@@ -18,17 +18,17 @@ class _LoginScreenState extends State<LoginScreen> {
             decoration: BoxDecoration(color: Theme.of(context).primaryColor),
           ),
           Container(
-            decoration: new BoxDecoration(
-              image: new DecorationImage(
-                image: new ExactAssetImage("assets/tempScreen/fondoapp.jpg"),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: ExactAssetImage('assets/tempScreen/fondoapp.jpg'),
                 fit: BoxFit.fitHeight,
               ),
             ),
-            child: new BackdropFilter(
+            child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-              child: new Container(
+              child: Container(
                 decoration:
-                    new BoxDecoration(color: Colors.white.withOpacity(0.0)),
+                    BoxDecoration(color: Colors.white.withOpacity(0.0)),
               ),
             ),
           ),
@@ -39,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Text(
-                    "AppiMusic",
+                    'AppiMusic',
                     style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
@@ -47,26 +47,26 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: 200,
                     height: 50,
                     child: TextButton(
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              "Iniciar sesión con Spotify",
-                              style: TextStyle(
-                                  fontSize: 12.0, fontFamily: "Raleway"),
-                            ),
-                          ),
-                          Icon(FontAwesomeIcons.spotify),
-                        ],
-                      ),
                       onPressed: () {
-                        Navigator.pushNamed(context, "/wait");
+                        Navigator.pushNamed(context, '/wait');
                       },
                       style: TextButton.styleFrom(
                         primary: Colors.white,
                         backgroundColor: Theme.of(context).accentColor,
                         shape: const BeveledRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(5))),
+                      ),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              'Iniciar sesión con Spotify',
+                              style: TextStyle(
+                                  fontSize: 12.0, fontFamily: 'Raleway'),
+                            ),
+                          ),
+                          Icon(FontAwesomeIcons.spotify),
+                        ],
                       ),
                     ),
                   ),

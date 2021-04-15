@@ -20,16 +20,16 @@ class _TempScreenState extends State<TempScreen> {
   //Validar el estado de la sesión
   void preferenciasCompartidas() async {
     //SharedPreferences proporciona un almacenamiento persistente para datos simples.
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool logged = prefs.getBool('logged');
+    var prefs = await SharedPreferences.getInstance();
+    var logged = prefs.getBool('logged');
 
     //Si el usuario se encuentra logueado
     if (logged == true) {
       Timer(Duration(seconds: 7),
-          () => Navigator.pushReplacementNamed(context, "/home"));
+          () => Navigator.pushReplacementNamed(context, '/home'));
     } else {
       Timer(Duration(seconds: 5),
-          () => Navigator.pushReplacementNamed(context, "/login"));
+          () => Navigator.pushReplacementNamed(context, '/login'));
     }
   }
 
@@ -44,19 +44,19 @@ class _TempScreenState extends State<TempScreen> {
             decoration: BoxDecoration(color: Theme.of(context).primaryColor),
           ),
           Container(
-            decoration: new BoxDecoration(
-              image: new DecorationImage(
-                image: new ExactAssetImage("assets/tempScreen/fondoapp.jpg"),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: ExactAssetImage('assets/tempScreen/fondoapp.jpg'),
                 fit: BoxFit
                     .fitHeight, //Se ajusta la imagen al alto del contenedor
               ),
             ),
-            child: new BackdropFilter(
+            child: BackdropFilter(
               //Se añade una capa de difuminación sobre la imagen
               filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-              child: new Container(
+              child: Container(
                 decoration:
-                    new BoxDecoration(color: Colors.white.withOpacity(0.0)),
+                    BoxDecoration(color: Colors.white.withOpacity(0.0)),
               ),
             ),
           ),
@@ -67,7 +67,7 @@ class _TempScreenState extends State<TempScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    "AppiMusic",
+                    'AppiMusic',
                     style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
@@ -81,13 +81,13 @@ class _TempScreenState extends State<TempScreen> {
                   ),
                   CircleAvatar(
                     backgroundImage:
-                        AssetImage("assets/tempScreen/iconmusic.png"),
+                        AssetImage('assets/tempScreen/iconmusic.png'),
                     backgroundColor: Colors.transparent,
                     maxRadius: 90,
                     minRadius: 80,
                   ),
                   Text(
-                    "Una aplicación que te permite consultar tus Playlist y reproducir canciones",
+                    'Una aplicación que te permite consultar tus Playlist y reproducir canciones',
                     style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),

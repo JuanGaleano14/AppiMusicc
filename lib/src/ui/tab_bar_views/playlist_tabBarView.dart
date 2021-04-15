@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PlaylistTabBar extends StatefulWidget {
-  PlaylistTabBarState createState() => new PlaylistTabBarState();
+  PlaylistTabBarState createState() => PlaylistTabBarState();
 }
 
 class PlaylistTabBarState extends State<PlaylistTabBar> {
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
@@ -25,7 +26,7 @@ class PlaylistTabBarState extends State<PlaylistTabBar> {
             itemBuilder: (BuildContext context, int index) {
               return ListTile(
                 leading: Image.network(snapshot
-                            .data.items[index].images.isNotEmpty
+                    .data.items[index].images.isNotEmpty
                     ? snapshot.data.items[index].images[0].url
                     : 'assets/tempScreen/noImagePlaylist.png'),
                 title: Text('${snapshot.data.items[index].name}'),
