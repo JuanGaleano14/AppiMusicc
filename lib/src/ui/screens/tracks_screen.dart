@@ -28,6 +28,7 @@ class _TracksScreenState extends State<TracksScreen> {
     }
   }
 
+  // ignore: always_declare_return_types
   _launchURL(urlParameter) async {
     var url = urlParameter.toString();
     if (await canLaunch(url)) {
@@ -82,7 +83,7 @@ class _TracksScreenState extends State<TracksScreen> {
       ),
     );
 
-    _sliverList(AsyncSnapshot<TracksPlaylistModel> snapshot) {
+    SliverList _sliverList(AsyncSnapshot<TracksPlaylistModel> snapshot) {
       var sliverList = SliverList(
         delegate: SliverChildBuilderDelegate(
               (context, index) {
@@ -125,7 +126,7 @@ class _TracksScreenState extends State<TracksScreen> {
       return sliverList;
     }
 
-    _scaffold(AsyncSnapshot<TracksPlaylistModel> snapshot) {
+    Scaffold _scaffold(AsyncSnapshot<TracksPlaylistModel> snapshot) {
       var scaffold = Scaffold(
         body: CustomScrollView(
           slivers: <Widget>[sliverAppBar, _sliverList(snapshot)],
