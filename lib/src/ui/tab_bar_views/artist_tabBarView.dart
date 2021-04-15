@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
 class ArtistTabBar extends StatefulWidget {
-  ArtistTabBarState createState() => new ArtistTabBarState();
+  @override
+  ArtistTabBarState createState() => ArtistTabBarState();
 }
 
 class ArtistTabBarState extends State<ArtistTabBar> {
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      decoration: new BoxDecoration(color: Theme.of(context).primaryColor),
+    return Container(
+      decoration: BoxDecoration(color: Theme.of(context).primaryColor),
       child: Center(
-        child: Text("Artists"),
+        child: Text('Artists'),
       ),
     );
   }

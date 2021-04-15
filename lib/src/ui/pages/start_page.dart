@@ -9,7 +9,8 @@ const kBackgroundColor = Color(0xFF202020);
 const kPrimaryColor = Color(0xFF80DEEA);
 
 class StartPage extends StatefulWidget {
-  StartPageState createState() => new StartPageState();
+  @override
+  StartPageState createState() => StartPageState();
 }
 
 class StartPageState extends State<StartPage> {
@@ -26,7 +27,7 @@ class StartPageState extends State<StartPage> {
           display1: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           button: TextStyle(color: kPrimaryColor),
           headline:
-          TextStyle(color: Colors.white, fontWeight: FontWeight.normal),
+              TextStyle(color: Colors.white, fontWeight: FontWeight.normal),
         ),
         inputDecorationTheme: InputDecorationTheme(
           enabledBorder: UnderlineInputBorder(
@@ -89,7 +90,7 @@ class WelcomeScreen extends StatelessWidget {
                     child: Container(
                       margin: EdgeInsets.only(bottom: 22),
                       padding:
-                      EdgeInsets.symmetric(horizontal: 36, vertical: 16),
+                          EdgeInsets.symmetric(horizontal: 36, vertical: 16),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25),
                         color: kPrimaryColor,
@@ -99,8 +100,8 @@ class WelcomeScreen extends StatelessWidget {
                           Text(
                             'Echa un vistazo a tus playlists',
                             style: Theme.of(context).textTheme.button.copyWith(
-                              color: Colors.black,
-                            ),
+                                  color: Colors.black,
+                                ),
                           ),
                           SizedBox(width: 10),
                           Icon(

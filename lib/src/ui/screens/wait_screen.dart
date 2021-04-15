@@ -24,7 +24,7 @@ class _WaitScreenState extends State<WaitScreen> {
     //Consumir Api para autenticación
     authorizationBloc.fetchAuthorizationCode();
 
-    _bienvenido() {
+    Center _bienvenido() {
       //Se da cierre al stream, para no permitir más escuchas.
       authorizationBloc.disposeToken();
 
