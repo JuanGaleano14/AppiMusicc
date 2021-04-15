@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
-import '../tab_bar_views/playlist_tabBarView.dart';
+
 import 'my_library_page.dart';
-import 'my_library_page.dart';
+
 
 const kBackgroundColor = Color(0xFF202020);
 const kPrimaryColor = Color(0xFF80DEEA);
@@ -24,9 +24,9 @@ class StartPageState extends State<StartPage> {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: kBackgroundColor,
         textTheme: TextTheme(
-          display1: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          headline4: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           button: TextStyle(color: kPrimaryColor),
-          headline:
+          headline5:
               TextStyle(color: Colors.white, fontWeight: FontWeight.normal),
         ),
         inputDecorationTheme: InputDecorationTheme(
@@ -69,11 +69,11 @@ class WelcomeScreen extends StatelessWidget {
                     children: [
                       TextSpan(
                         text: 'Que no te falte la música\n',
-                        style: Theme.of(context).textTheme.display1,
+                        style: Theme.of(context).textTheme.headline4,
                       ),
                       TextSpan(
                         text: 'en tus mejores momentos...',
-                        style: Theme.of(context).textTheme.headline,
+                        style: Theme.of(context).textTheme.headline5,
                       )
                     ],
                   ),
